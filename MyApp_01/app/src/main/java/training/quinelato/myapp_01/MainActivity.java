@@ -15,12 +15,15 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        TextView welcome = (TextView)findViewById(R.id.txt_welcome);
         if (!isLogedIn()) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
         }
-        setContentView(R.layout.activity_main);
     }
 
 
@@ -53,9 +56,9 @@ public class MainActivity extends ActionBarActivity {
         }
 
         String user = intent.getExtras().getString("user");
-        String welcome = String.format(getString(R.string.welcome), user);
-        TextView welcomeText = (TextView)findViewById(R.id.txt_welcome);
-        welcomeText.setText(welcome);
+        String welcomeText = String.format(getString(R.string.welcome), user);
+        TextView welcome = (TextView)findViewById(R.id.txt_welcome);
+        welcome.setText(welcomeText);
         return true;
     }
 }

@@ -51,16 +51,14 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.btn_ok){
-            if(edtUser.getText().toString().isEmpty() || edtPassword.toString().isEmpty()){
+        if(v.getId() == R.id.btn_ok)
+            if (edtUser.getText().toString().isEmpty() || edtPassword.toString().isEmpty()) {
                 Toast.makeText(this, R.string.login_data_required, Toast.LENGTH_LONG).show();
-            }
-            else{
+            } else {
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.putExtra("user", edtUser.getText().toString());
                 intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
-        }
     }
 }
